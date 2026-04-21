@@ -1,3 +1,6 @@
+import java.sql.SQLOutput;
+import java.util.Random;
+
 public class Sorter {
 
     public void basicSort(int[] arr) { //insertion
@@ -45,5 +48,24 @@ public class Sorter {
         while(j < right_half.length){
             arr[k++] = right_half[j++];
         }
+    }
+
+    public void printArray(int[] arr){
+        int limit = Math.min(arr.length, 20);
+        for(int i = 0; i < limit; i++){
+            System.out.print(arr[i] + " ");
+        }
+        if (arr.length > limit){
+            System.out.printf("... [%d elements", arr.length - limit);
+        }
+    }
+
+    public int[] generateRandomArray(int size){
+        int[] arr = new int[size];
+        Random random = new Random();
+        for(int i = 0; i < size; i++){
+            arr[i] = random.nextInt(100);
+        }
+        return arr;
     }
 }
